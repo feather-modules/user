@@ -2,6 +2,24 @@
   "object": {
     "pins": [
       {
+        "package": "admin-module",
+        "repositoryURL": "https://github.com/FeatherCMS/admin-module",
+        "state": {
+          "branch": null,
+          "revision": "11ab6c20e87cabc57a42cfd3300a1a360354e343",
+          "version": "1.0.0-beta.1"
+        }
+      },
+      {
+        "package": "api-module",
+        "repositoryURL": "https://github.com/FeatherCMS/api-module",
+        "state": {
+          "branch": null,
+          "revision": "da124c5dc5661ccdada986736d22c753b6e507d3",
+          "version": "1.0.0-beta.1"
+        }
+      },
+      {
         "package": "async-http-client",
         "repositoryURL": "https://github.com/swift-server/async-http-client.git",
         "state": {
@@ -33,17 +51,17 @@
         "repositoryURL": "https://github.com/binarybirds/content-api",
         "state": {
           "branch": null,
-          "revision": "25fcc8cabef0482eac7b4a14e64cf26396d78460",
-          "version": "1.1.0-beta.1"
+          "revision": "cfdc392c845bfd0f57d5b6589574708f4b99dcd8",
+          "version": "1.1.0-beta.2"
         }
       },
       {
         "package": "feather-core",
-        "repositoryURL": "https://github.com/binarybirds/feather-core",
+        "repositoryURL": "https://github.com/FeatherCMS/feather-core",
         "state": {
           "branch": null,
-          "revision": "628c09ec61fd0f8736137a2c15e2e40234a6d594",
-          "version": "1.0.0-beta.30.2"
+          "revision": "d9bea823f3270ea4ce380c77e3357d03207a7029",
+          "version": "1.0.0-beta.36"
         }
       },
       {
@@ -71,6 +89,15 @@
           "branch": null,
           "revision": "6f29f6f182c812075f09c7575c18ac5535c26824",
           "version": "4.0.1"
+        }
+      },
+      {
+        "package": "frontend-module",
+        "repositoryURL": "https://github.com/FeatherCMS/frontend-module",
+        "state": {
+          "branch": null,
+          "revision": "6c1f74319cea345e369c44028f234458877087b8",
+          "version": "1.0.0-beta.4"
         }
       },
       {
@@ -260,6 +287,15 @@
           "branch": null,
           "revision": "5a352330c09a323e59ebd99afdf4ca3964c217bc",
           "version": "1.9.1"
+        }
+      },
+      {
+        "package": "system-module",
+        "repositoryURL": "https://github.com/FeatherCMS/system-module",
+        "state": {
+          "branch": null,
+          "revision": "0f181d86df51b276bb3ac7ccf2a15468db5b8f18",
+          "version": "1.0.0-beta.3"
         }
       },
       {

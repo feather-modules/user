@@ -1,6 +1,6 @@
 //
-//  File.swift
-//  
+//  UserTokenObject.swift
+//  UserModuleApi
 //
 //  Created by Tibor Bodecs on 2020. 08. 29..
 //
@@ -19,3 +19,4 @@ public struct UserTokenObject: Codable {
         self.userId = userId
     }
 }
+ 

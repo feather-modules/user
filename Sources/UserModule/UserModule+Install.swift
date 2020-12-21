@@ -31,7 +31,7 @@ extension UserModule {
             UserRoleModel(key: "editors", name: "Editors", notes: "Just an example role for editors, feel free to select permissions."),
         ]
         let users = [
-            UserModel(email: "feather@binarybirds.com", password: try! Bcrypt.hash("FeatherCMS"), root: true),
+            UserModel(email: "root@feathercms.com", password: try! Bcrypt.hash("FeatherCMS"), root: true),
         ]
         return req.eventLoop.flatten([
             permissionModels.create(on: req.db),

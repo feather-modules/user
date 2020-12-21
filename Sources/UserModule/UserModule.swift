@@ -49,6 +49,10 @@ final class UserModule: ViperModule {
         app.hooks.register("admin", use: (router as! UserRouter).adminRoutesHook)
         app.hooks.register("leaf-admin-menu", use: leafAdminMenuHook)
         
+        /// api
+        app.hooks.register("public-api", use: (router as! UserRouter).publicApiRoutesHook)
+        app.hooks.register("api", use: (router as! UserRouter).apiRoutesHook)
+        
         /// permission / access
         app.hooks.register("access", use: accessHook)
         app.hooks.register("leaf-permission-hook", use: leafPermissionHook)
