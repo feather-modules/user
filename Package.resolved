@@ -78,8 +78,8 @@
         "repositoryURL": "https://github.com/vapor/fluent-kit.git",
         "state": {
           "branch": null,
-          "revision": "b6cd7b93ef45b767041efeb83571457658c4acf7",
-          "version": "1.10.1"
+          "revision": "86ebecdb98981b7a242746209b4335770bf0bd11",
+          "version": "1.10.2"
         }
       },
       {
@@ -294,8 +294,8 @@
         "repositoryURL": "https://github.com/FeatherCMS/system-module",
         "state": {
           "branch": null,
-          "revision": "0f181d86df51b276bb3ac7ccf2a15468db5b8f18",
-          "version": "1.0.0-beta.3"
+          "revision": "d92daeaf7eb125827a6d1ae534cc1ce9bbd32083",
+          "version": "1.0.0-beta.4"
         }
       },
       {
