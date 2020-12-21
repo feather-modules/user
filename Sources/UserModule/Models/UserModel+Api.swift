@@ -37,7 +37,7 @@ extension UserPatchObject: ValidatableContent {
 extension UserModel: ApiContentRepresentable {
 
     var listContent: UserListObject {
-        .init(id: id!, email: email, root: root)
+        .init(id: id!, email: email)
     }
 
     var getContent: UserGetObject {

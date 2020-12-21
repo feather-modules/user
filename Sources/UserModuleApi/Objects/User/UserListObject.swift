@@ -11,14 +11,11 @@ public struct UserListObject: Codable {
 
     public var id: UUID
     public var email: String
-    public var root: Bool
 
     public init(id: UUID,
-                email: String,
-                root: Bool)
+                email: String)
     {
         self.id = id
         self.email = email
-        self.root = root
     }
 }
