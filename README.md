@@ -6,7 +6,7 @@ This module provides the user management and access control system for Feather C
 
 You can use the Swift Package Manager to integrate this module.
 
-```
+```swift
 // add to your dependencies 
 .package(url: "https://github.com/FeatherCMS/user-module", from: "1.0.0-beta"),
 
@@ -20,7 +20,7 @@ You can use the Swift Package Manager to integrate this module.
 
 You can add your own permission properties by implementing the user permission install hook.
 
-```
+```swift
 app.hooks.register("user-permission-install", use: userPermissionInstallHook)
 
 func userPermissionInstallHook(args: HookArguments) -> [[String: Any]] {
