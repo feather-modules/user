@@ -12,23 +12,31 @@
 
     <form method="post" class="w:xs m:h:auto">
 
-        #var(field = nil)
+        <section class="m:b">
+            <label for="email">Email<span class="required">*</span></label>
+            <input type="email" id="email" name="email" value="#(fields.email.value)" placeholder="root@feathercms.com" class="field" aria-required="true">
+            #if(fields.email.error != nil):
+            <span class="error">#(fields.email.error)</span>
+            #endif
+        </section>
 
-        #(field = ["id": "email", "type": "email", "required": true, "data": fields.email, "placeholder": "feather@binarybirds.com"])
-        #inline("Admin/Fields/Text")
-        
-        #(field = ["id": "password", "type": "password", "required": true, "data": fields.password])
-        #inline("Admin/Fields/Text")
-        
+        <section class="m:b">
+            <label for="password">Password<span class="required">*</span></label>
+            <input type="password" id="password" name="password" class="field" aria-required="true">
+            #if(fields.password.error != nil):
+            <span class="error">#(fields.passwords.error)</span>
+            #endif
+        </section>
+
         #if(notification != nil):
         <section id="notification" class="m:v t:center error">
             <span>#(notification)</span>
         </section>
         #endif
 
-        #(field = ["label": "Sign in"])
-        #inline("Admin/Fields/Button")
-        
+        <section class="m:b">
+            <input type="submit" class="w:full" value="Sign in" />
+        </section>
     </form>
 </div>
 #enddefine
