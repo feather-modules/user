@@ -13,7 +13,7 @@ final class UserEditForm: ModelForm {
     var modelId: UUID?
     var email = FormField<String>(key: "email").email()
     var password = FormField<String>(key: "password").length(max: 250)
-    var root = SelectionFormField<Bool>(key: "root")
+    var root = FormField<Bool>(key: "root")
     var roles = ArraySelectionFormField<UUID>(key: "roles")
     var notification: String?
 
@@ -24,7 +24,6 @@ final class UserEditForm: ModelForm {
     init() {}
 
     func initialize(req: Request) -> EventLoopFuture<Void> {
-        root.options = FormFieldOption.trueFalse()
         root.value = false
         return UserRoleModel.query(on: req.db).all().mapEach(\.formFieldOption).map { [unowned self] in roles.options = $0 }
     }
@@ -47,7 +46,7 @@ final class UserEditForm: ModelForm {
 
     func write(to output: Model) {
         output.email = email.value!
-        output.root = root.value!
+        output.root = root.value ?? false
         if let password = password.value, !password.isEmpty {
             output.password = try! Bcrypt.hash(password)
         }
