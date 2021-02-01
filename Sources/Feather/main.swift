@@ -24,20 +24,24 @@ try LoggingSystem.bootstrap(from: &env)
 let feather = try Feather(env: env)
 defer { feather.stop() }
 
-try feather.configure(database: .sqlite(.file("db.sqlite")),
-                      databaseId: .sqlite,
-                      fileStorage: .local(publicUrl: Application.baseUrl, publicPath: Application.Paths.public, workDirectory: "assets"),
-                      fileStorageId: .local,
-                      modules: [
-                        SystemBuilder(),
-                        ApiBuilder(),
-                        AdminBuilder(),
-                        FrontendBuilder(),
+feather.useSQLiteDatabase()
+feather.useLocalFileStorage()
+feather.usePublicFileMiddleware()
+feather.setMaxUploadSize("10mb")
 
-                        UserBuilder(),
-                      ])
+try feather.configure([
+    /// core
+    SystemBuilder(),
+    ApiBuilder(),
+    AdminBuilder(),
+    FrontendBuilder(),
+    UserBuilder(),
+])
 
+
+/// reset resources folder if we're in debug mode
 if feather.app.isDebug {
-    try feather.reset(resourcesOnly: true)
+    try feather.reset(resourcesOnly: false)
 }
+
 try feather.start()
