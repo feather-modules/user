@@ -40,23 +40,18 @@ final class UserModule: ViperModule {
 
     func boot(_ app: Application) throws {
         app.databases.middleware.use(UserModelContentMiddleware())
-
         /// install
         app.hooks.register("model-install", use: modelInstallHook)
         app.hooks.register("user-permission-install", use: userPermissionInstallHook)
-        
         /// admin
-        app.hooks.register("admin", use: (router as! UserRouter).adminRoutesHook)
+        app.hooks.register("admin-routes", use: (router as! UserRouter).adminRoutesHook)
+        app.hooks.register("public-api-routes", use: (router as! UserRouter).publicApiRoutesHook)
+        app.hooks.register("api-routes", use: (router as! UserRouter).apiRoutesHook)
+        /// leaf
         app.hooks.register("leaf-admin-menu", use: leafAdminMenuHook)
-        
-        /// api
-        app.hooks.register("public-api", use: (router as! UserRouter).publicApiRoutesHook)
-        app.hooks.register("api", use: (router as! UserRouter).apiRoutesHook)
-        
         /// permission / access
         app.hooks.register("access", use: accessHook)
         app.hooks.register("leaf-permission-hook", use: leafPermissionHook)
-        
         /// auth
         app.hooks.register("admin-auth-middlewares", use: adminAuthMiddlewaresHook)
         app.hooks.register("api-auth-middlewares", use: apiAuthMiddlewaresHook)
