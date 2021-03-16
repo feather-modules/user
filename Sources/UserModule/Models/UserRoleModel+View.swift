@@ -7,15 +7,15 @@
 
 import FeatherCore
 
-extension UserRoleModel: LeafDataRepresentable {
+extension UserRoleModel: TemplateDataRepresentable {
 
-    var leafData: LeafData {
+    var templateData: TemplateData {
         .dictionary([
             "id": id,
             "key": key,
             "name": name,
             "notes": notes,
-            "permissions": $permissions.value != nil ? permissions.map(\.leafData) : [],
+            "permissions": $permissions.value != nil ? permissions.map(\.templateData) : [],
         ])
     }
 }

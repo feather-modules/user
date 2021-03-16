@@ -7,17 +7,17 @@
 
 import FeatherCore
 
-struct ModulePermission: LeafDataRepresentable {
+struct ModulePermission: TemplateDataRepresentable {
 
-    struct Group: LeafDataRepresentable {
+    struct Group: TemplateDataRepresentable {
 
         var name: String
         var permissions: [FormFieldOption]
 
-        var leafData: LeafData {
+        var templateData: TemplateData {
             .dictionary([
                 "name": name,
-                "permissions": permissions.map(\.leafData),
+                "permissions": permissions.map(\.templateData),
             ])
         }
     }
@@ -25,10 +25,10 @@ struct ModulePermission: LeafDataRepresentable {
     var module: String
     var groups: [Group]
 
-    var leafData: LeafData {
+    var templateData: TemplateData {
         .dictionary([
             "module": module,
-            "groups": groups.map(\.leafData),
+            "groups": groups.map(\.templateData),
         ])
     }
 }
@@ -55,12 +55,12 @@ final class PermissionFormField: FormFieldRepresentable {
         self.error = error
     }
 
-    var leafData: LeafData {
+    var templateData: TemplateData {
         .dictionary([
             "key": key,
             "name": name,
             "values": values,
-            "options": options.map(\.leafData),
+            "options": options.map(\.templateData),
             "error": error,
         ])
     }

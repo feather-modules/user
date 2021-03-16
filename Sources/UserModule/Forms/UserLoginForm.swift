@@ -17,9 +17,9 @@ final class UserLoginForm: Form {
         [email, password]
     }
     
-    var leafData: LeafData {
+    var templateData: TemplateData {
         .dictionary([
-            "fields": fieldsLeafData,
+            "fields": fieldsTemplateData,
             "notification": .string(notification),
         ])
     }

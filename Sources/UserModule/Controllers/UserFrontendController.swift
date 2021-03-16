@@ -16,7 +16,7 @@ struct UserFrontendController {
             form.email.value = model.email
         }
 
-        return req.leaf.render(template: "User/Frontend/Login", context: .init(form.leafData.dictionary!))
+        return req.tau.render(template: "User/Frontend/Login", context: .init(form.templateData.dictionary!))
             .encodeResponse(for: req)
     }
 

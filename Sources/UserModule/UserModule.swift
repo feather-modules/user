@@ -28,12 +28,12 @@ final class UserModule: ViperModule {
         Bundle.module.resourceURL?.appendingPathComponent("Bundle")
     }
     
-    func leafDataGenerator(for req: Request) -> [String: LeafDataGenerator]? {
-        var res: [String: LeafDataGenerator] = [
-            "isAuthenticated": .lazy(LeafData.bool(req.auth.has(UserModel.self)))
+    func templateDataGenerator(for req: Request) -> [String: TemplateDataGenerator]? {
+        var res: [String: TemplateDataGenerator] = [
+            "isAuthenticated": .lazy(TemplateData.bool(req.auth.has(UserModel.self)))
         ]
         if let user = try? req.auth.require(UserModel.self) {
-            res["email"] = .lazy(LeafData.string(user.email))
+            res["email"] = .lazy(TemplateData.string(user.email))
         }
         return res
     }
@@ -71,12 +71,12 @@ final class UserModule: ViperModule {
         [UserTokenModel.authenticator(), UserModel.guardMiddleware()]
     }
     
-    func leafAdminMenuHook(args: HookArguments) -> LeafDataRepresentable {
+    func leafAdminMenuHook(args: HookArguments) -> TemplateDataRepresentable {
         [
             "name": "User",
             "icon": "user",
             "permission": "user.module.access",
-            "items": LeafData.array([
+            "items": TemplateData.array([
                 [
                     "url": "/admin/user/users/",
                     "label": "Users",

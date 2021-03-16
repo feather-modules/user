@@ -7,9 +7,9 @@
 
 import FeatherCore
 
-extension UserPermissionModel: LeafDataRepresentable {
+extension UserPermissionModel: TemplateDataRepresentable {
 
-    var leafData: LeafData {
+    var templateData: TemplateData {
         .dictionary([
             "id": id,
             "key": key,
