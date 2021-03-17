@@ -47,11 +47,11 @@ final class UserModule: ViperModule {
         app.hooks.register("admin-routes", use: (router as! UserRouter).adminRoutesHook)
         app.hooks.register("public-api-routes", use: (router as! UserRouter).publicApiRoutesHook)
         app.hooks.register("api-routes", use: (router as! UserRouter).apiRoutesHook)
-        /// leaf
-        app.hooks.register("leaf-admin-menu", use: leafAdminMenuHook)
+        /// template
+        app.hooks.register("template-admin-menu", use: templateAdminMenuHook)
         /// permission / access
         app.hooks.register("access", use: accessHook)
-        app.hooks.register("leaf-permission-hook", use: leafPermissionHook)
+        app.hooks.register("template-permission-hook", use: templatePermissionHook)
         /// auth
         app.hooks.register("admin-auth-middlewares", use: adminAuthMiddlewaresHook)
         app.hooks.register("api-auth-middlewares", use: apiAuthMiddlewaresHook)
@@ -71,7 +71,7 @@ final class UserModule: ViperModule {
         [UserTokenModel.authenticator(), UserModel.guardMiddleware()]
     }
     
-    func leafAdminMenuHook(args: HookArguments) -> TemplateDataRepresentable {
+    func templateAdminMenuHook(args: HookArguments) -> TemplateDataRepresentable {
         [
             "name": "User",
             "icon": "user",
@@ -96,7 +96,7 @@ final class UserModule: ViperModule {
         ]
     }
 
-    func leafPermissionHook(args: HookArguments) -> Bool {
+    func templatePermissionHook(args: HookArguments) -> Bool {
         let req = args["req"] as! Request
         let name = args["key"] as! String
 
