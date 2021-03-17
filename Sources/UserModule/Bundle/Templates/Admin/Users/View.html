@@ -8,23 +8,22 @@
 ])
 
 #define(details):
-    <dl class="t:center">
+    <dl>
         <dt>Id</dt>
-        <dd class="m:h:zero m:b">#(model.id)</dd>
+        <dd>#(model.id)</dd>
 
         <dt>Email</dt>
-        <dd class="m:h:zero m:b">#(model.email)</dd>
+        <dd>#(model.email)</dd>
         
         <dt>Has root access?</dt>
-        <dd class="m:h:zero m:b">#(model.root)</dd>
+        <dd>#(model.root)</dd>
         
         <dt>Roles</dt>
-        <dd class="m:h:zero m:b">
+        <dd>
             #for(role in model.roles):
                 #(role.name)<br>
             #endfor
         </dd>
-
     </dl>
 #enddefine
 

@@ -3,44 +3,41 @@
     "description": "Sign in with your existing account"
 ])
 #define(body):
-<div class="container">
-    <div class="margin">
-
-        <header class="margin-bottom">
-            <h1>Login</h1>
-            <p class="margin-top-zero">Sign in with your existing account</p>
-        </header>
-
-        <form method="post">
-
-            <section class="margin-bottom">
-                <label for="email">Email<span class="color-red">*</span></label>
-                <input type="email" id="email" name="email" value="#(fields.email.value)" placeholder="root@feathercms.com" class="field" aria-required="true">
-                #if(fields.email.error != nil):
-                <span class="color-red">#(fields.email.error)</span>
-                #endif
-            </section>
-
-            <section class="margin-bottom">
-                <label for="password">Password<span class="color-red">*</span></label>
-                <input type="password" id="password" name="password" class="field" aria-required="true">
-                #if(fields.password.error != nil):
-                <span class="color-red">#(fields.passwords.error)</span>
-                #endif
-            </section>
-
-            #if(notification != nil):
-            <section id="notification" class="color-red margin-bottom">
-                <span>#(notification)</span>
-            </section>
-            #endif
-
-            <section class="margin-bottom-xl">
-                <input type="submit" value="Sign in" />
-            </section>
-        </form>
-        
-    </div>
+<div class="lead container">
+    <h1>Login</h1>
+    <p>Sign in with your existing account</p>
 </div>
+
+<form method="post" class="container">
+
+    #if(notification != nil):
+    <section id="notification" class="center">
+        <span class="error">#(notification)</span>
+    </section>
+    #endif
+
+    <section>
+        <label for="email">Email<span class="required">*</span></label>
+        <input type="email" id="email" name="email" value="#(fields.email.value)" placeholder="root@feathercms.com" class="field" aria-required="true">
+        #if(fields.email.error != nil):
+        <span class="error">#(fields.email.error)</span>
+        #endif
+    </section>
+
+    <section>
+        <label for="password">Password<span class="required">*</span></label>
+        <input type="password" id="password" name="password" class="field" aria-required="true">
+        #if(fields.password.error != nil):
+        <span class="error">#(fields.passwords.error)</span>
+        #endif
+    </section>
+
+    <section>
+        <input type="submit" value="Sign in" />
+    </section>
+    
+    
+</form>
+
 #enddefine
 #inline("Frontend/Index")

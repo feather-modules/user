@@ -7,21 +7,21 @@
     ]
 ])
 #define(details):
-    <dl class="t:center">
+    <dl>
         <dt>Id</dt>
-        <dd class="m:h:zero m:b">#(model.id)</dd>
+        <dd>#(model.id)</dd>
 
         <dt>Key</dt>
-        <dd class="m:h:zero m:b">#(model.key)</dd>
+        <dd>#(model.key)</dd>
         
         <dt>Name</dt>
-        <dd class="m:h:zero m:b">#(model.name)</dd>
+        <dd>#(model.name)</dd>
         
         <dt>Notes</dt>
-        <dd class="m:h:zero m:b">#(model.notes)</dd>
+        <dd>#(model.notes)</dd>
         
         <dt>Permissions</dt>
-        <dd class="m:h:zero m:b">
+        <dd>
             #for(permission in model.permissions):
                 #(permission.name)<br>
             #endfor
